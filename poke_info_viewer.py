@@ -1,7 +1,8 @@
-"""
-Description:
-  Graphical user interface that displays select information about a
-  user-specified Pokemon fetched from the PokeAPI
+""" 
+Group members: Nadirsha Kareem, Joy Asher
+Description: 
+  Graphical user interface that displays select information about a 
+  user-specified Pokemon fetched from the PokeAPI 
 
 Usage:
   python poke_info_viewer.py
@@ -47,9 +48,9 @@ def handle_btn_get_info():
         bar_hp['value'] = poke_info['stats'][0]['base_stat']
         bar_attack['value'] = poke_info['stats'][1]['base_stat']
         bar_defense['value'] = poke_info['stats'][2]['base_stat']
-        # add code here
-        ## add code here
-        ## add code here
+        bar_special_attack['value'] = poke_info['stats'][3]['base_stat']
+        bar_special_defense['value'] = poke_info['stats'][4]['base_stat']
+        bar_speed['value'] = poke_info['stats'][5]['base_stat']
     else:
         err_msg = f'Unable to fetch information for {poke_name.capitalize()} from the PokeAPI.'
         messagebox.showinfo(title='Error', message=err_msg, icon='error')
@@ -65,16 +66,16 @@ label_height_val.grid(row=0, column=1, padx=(0,10), pady=(10,5), sticky=W)
 
 label_weight = ttk.Label(frame_info, text="Weight:")
 label_weight.grid(row=1, column=0, padx=(10,5), pady=5, sticky=E)
-# add code here
-# add code here
+label_weight_val = ttk.Label(frame_info, width=20)
+label_weight_val.grid(row=1, column=1, padx=(0,10), pady=5, sticky=W)
 
 label_type = ttk.Label(frame_info, text="Type:")
-# add code here
-# add code here
-# add code here
+label_type.grid(row=2, column=0, padx=(10,5), pady=5, sticky=E)
+label_type_val = ttk.Label(frame_info, width=20)
+label_type_val.grid(row=2, column=1, padx=(0,10), pady=5, sticky=W)
 
-# Stats fame
-# Note: Max stat value is 255 for all stats
+#Stats fame
+#Note: Max stat value is 255 for all stats
 STAT_MAX_VALUE = 255.0
 PRG_BAR_LENGTH = 200
 label_hp = ttk.Label(frame_stats, text="HP:")
@@ -93,18 +94,18 @@ bar_defense = ttk.Progressbar(frame_stats, length=PRG_BAR_LENGTH, maximum=STAT_M
 bar_defense.grid(row=2, column=1, padx=(0,10), pady=5)
 
 label_special_attack = ttk.Label(frame_stats, text="Special Attack:")
-# add code here
-# add code here
-# add code here
+label_special_attack.grid(row=3, column=0, padx=(10, 5), pady=5, sticky=E)
+bar_special_attack = ttk.Progressbar(frame_stats, length=PRG_BAR_LENGTH, maximum=STAT_MAX_VALUE)
+bar_special_attack.grid(row=3, column=1, padx=(0, 10), pady=5)
 
-# add code here
-# add code here
+label_special_defense = ttk.Label(frame_stats, text="Special Defense:")
+label_special_defense.grid(row=4, column=0, padx=(10, 5), pady=5, sticky=E)
 bar_special_defense = ttk.Progressbar(frame_stats, length=PRG_BAR_LENGTH, maximum=STAT_MAX_VALUE)
 bar_special_defense.grid(row=4, column=1, padx=(0,10), pady=5)
 
 label_speed = ttk.Label(frame_stats, text="Speed:")
 label_speed.grid(row=5, column=0, padx=(10,5), pady=(5,10), sticky=E)
 bar_speed = ttk.Progressbar(frame_stats, length=PRG_BAR_LENGTH, maximum=STAT_MAX_VALUE)
-# add code here
+bar_speed.grid(row=5, column=1, padx=(0, 10), pady=(5,10))
 
 root.mainloop()
